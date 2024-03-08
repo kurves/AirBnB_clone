@@ -2,6 +2,11 @@
 
 import uuid
 from datetime import datetime
+from models.engine.file_storage import FileStorage
+
+storage = FileStorage()
+storage.reload()
+
 
 """Define a class that instanitiate a new instance"""
 
