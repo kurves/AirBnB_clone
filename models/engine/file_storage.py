@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import json
 import os
 
@@ -7,6 +9,13 @@ class FileStorage:
     """class that serislisez and desiarializes"""
     __file_path = "file.json"
     __objects = {}
+
+    def __init__(self, file_path=None):
+        """ïnitilize file path"""
+        if file_path:
+            self.__file_path = file_path
+
+        self.reload()
 
     def all(self):
         """Return the objects."""
