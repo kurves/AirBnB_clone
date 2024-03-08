@@ -10,15 +10,7 @@ class FileStorage:
     __file_path = "file.json"
     __objects = {}
 
-    def __init__(self, file_path=None):
-        """ïnitilize file path"""
-        if file_path:
-            self.__file_path = file_path
-
-        self.reload()
-
-    def all(self):
-        """Return the objects."""
+    def all(self): """Return the objects."""
         return self.__objects
 
     def new(self, obj):
