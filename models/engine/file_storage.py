@@ -29,18 +29,16 @@ class FileStorage:
     
     def save(self):
         """Serialize to the JSON file."""
-        obj_dict = {k: obj.to_dict() for k, obj in self.__objects.items()}
         try:
             with open(self.__file_path, 'w') as f:
-                json.dump(obj_dict, f)
+                json.dump(self.__objects, f)
         except Exception as e:
             print(f"Error saving to file: {e}")
 
     def reload(self):
         """Deserialize the JSON file"""
-        if os.path.exists(self.__file_path):
-            try:
-                with open(self.__file_path, 'r') as f:
-                    self.__objects = json.load(f)
-            except FileNotFoundError:
-                pass
+        try:
+            with open(self.__file_path, 'r') as f:
+                self.__objects = json.load(f)
+        except FileNotFoundError:
+            pass
