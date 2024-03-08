@@ -22,4 +22,16 @@ class FileStorage:
         with open(self.__file_path, 'w') as f:
             json.dump(obj_dict, f)
 
+    def reload(self):
+        """Deserialize the JSON file"""
+        if os.path.exists(self.__file_path):
+            with open(self.__file_path, 'r') as f:
+                obj_dict = json.load(f)
+                for k, v in obj_dict.items():
+                    class_name, obj_id = k.split('.')
+                    module = __import__('models.' + class_name, fromlist=[class_name])
+                    class_ = getattr(module, class_name)
+                    obj = class_(**v)
+                    self.__objects[k] = obj
+
 
