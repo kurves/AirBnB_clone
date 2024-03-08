@@ -15,6 +15,13 @@ class BaseModel:
                     if k == 'created_at' or k == 'updated_at':
                         value = datetime.striptime(value, "%Y-%m-%dT%H:%M:%S.%f")
                     setattr(sself, k, v)
+            if 'id' not in kwargs:
+                self.id = str(uuid.uuid4())
+            if 'created_at' not in kwargs:
+                self.id = datetime.now()
+            if 'updated_at' not in kwargs:
+                self.updated_at = datetime.now()
+
 
 
         self.id = str(uuid.uuid4())
