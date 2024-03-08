@@ -30,8 +30,11 @@ class FileStorage:
     def save(self):
         """Serialize to the JSON file."""
         obj_dict = {k: obj.to_dict() for k, obj in self.__objects.items()}
-        with open(self.__file_path, 'w') as f:
-            json.dump(obj_dict, f)
+        try:
+            with open(self.__file_path, 'w') as f:
+                json.dump(obj_dict, f)
+        except Exception as e:
+            print(f"Error saving to file: {e}")
 
     def reload(self):
         """Deserialize the JSON file"""
