@@ -2,10 +2,7 @@
 
 import uuid
 from datetime import datetime
-from models.engine.file_storage import FileStorage
-
-storage = FileStorage()
-storage.reload()
+from . import storage
 
 
 """Define a class that instanitiate a new instance"""
@@ -41,7 +38,7 @@ class BaseModel:
     def save(self):
         """updtae saved object"""
         self.updated_at = datetime.now()
-        storage.save()
+        storage.save(self)
 
     def to_dict(self):
         """"return dict represntation"""
