@@ -26,6 +26,7 @@ class BaseModel:
                 self.created_at = datetime.now()
             if 'updated_at' not in kwargs:
                 self.updated_at = datetime.now()
+            storage.new(self)
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
@@ -40,13 +41,14 @@ class BaseModel:
     def save(self):
         """updtae saved object"""
         self.updated_at = datetime.now()
+        storage.save()
 
     def to_dict(self):
         """"return dict represntation"""
         dict_copy = self.__dict__.copy()
         dict_copy['__class__'] = self.__class__.__name__
-        dict_copy['created_at'] = self.created_at.isoformat()
-        dict_copy['updated_at'] = self.updated_at.isoformat()
+        dict_copy['created_at'] = self.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
+        dict_copy['updated_at'] = self.updated_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
         return dict_copy
 
 
