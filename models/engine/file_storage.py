@@ -1,5 +1,15 @@
 #!/usr/bin/python3
 
+from models.base_model import BaseModel
+
+"""class basemodelencoder"""
+
+class BaseModelEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, BaseModel):
+            return obj.to_dict()
+        return super().default(obj)
+
 import json
 import os
 
