@@ -9,6 +9,14 @@ class FileStorage:
     """class that serislisez and desiarializes"""
     __file_path = "file.json"
     __objects = {}
+    
+    def __init__(self, file_path=None):
+        """Initializes the FileStorage with an optional file path."""
+        if file_path:
+            self.__file_path = file_path
+
+        self.reload()
+
 
     def all(self):
         """Return the objects."""
