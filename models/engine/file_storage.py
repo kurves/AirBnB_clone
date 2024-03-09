@@ -40,3 +40,9 @@ class FileStorage:
                     self.__objects[k] = cls(**v)
         except FileNotFoundError:
             pass
+
+    def encode(self, obj):
+        """Customizes JSON serialization for BaseModel objects."""
+        if isinstance(obj, BaseModel)
+            return obj.to_dict()
+        return obj
