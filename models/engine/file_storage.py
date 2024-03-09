@@ -31,7 +31,7 @@ class FileStorage:
             }
         try:
             with open(self.__file_path, 'w') as f:
-                json.dump(serialized_objects, f, cls=BaseModelEncoder)
+                json.dump(serialized_objects, f)
         except Exception as e:
             print(f"Error saving to file: {e}")
 
@@ -39,11 +39,12 @@ class FileStorage:
         """Deserialize the JSON file"""
         try:
             with open(self.__file_path, 'r') as f:
-                self.__objects = json.load(f)
-                for key, value in self.__objects.items():
-                    class_name, obj_id = k.split('.')
+                serialized_objects = json.load(f)
+                for key, value in serialized_objects.items():
+                    class_name = value.pop('__class__')
                     module = __import__('models.' + class_name.lower(), fromlist=[class_name])
                     cls = getattr(module, class_name)
-                    self.__objects[key] = cls(**value)
+                    instance = cls(**value)
+                    self.__objects[key] = instanc
         except FileNotFoundError:
             pass
