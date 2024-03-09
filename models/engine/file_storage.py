@@ -1,15 +1,5 @@
 #!/usr/bin/python3
 
-from models.base_model import BaseModel
-
-"""class basemodelencoder"""
-
-class BaseModelEncoder(json.JSONEncoder):
-    def default(self, obj):
-        if isinstance(obj, BaseModel):
-            return obj.to_dict()
-        return super().default(obj)
-
 import json
 import os
 
@@ -33,8 +23,12 @@ class FileStorage:
     def save(self):
         """Serialize to the JSON file."""
         serialized_objects = {}
-        for k, obj in self.__objects.items():
-            serialized_objects[k] = obj.to_dict()
+        for k, v in self.__objects.items():
+            class_name, obj_id = key.split('.')
+            serialized_objects[key] = {
+                '__class__': class_name,
+                **value.__dict__
+            }
         try:
             with open(self.__file_path, 'w') as f:
                 json.dump(serialized_objects, f, cls=BaseModelEncoder)
