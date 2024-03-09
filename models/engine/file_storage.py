@@ -24,17 +24,17 @@ class FileStorage:
 
     def new(self, obj):
         """objects the obj with key <obj class name>.id."""
-        key = f"{type(obj).__name__}.{obj.id}"
+        k = f"{type(obj).__name__}.{obj.id}"
         self.__objects[k] = obj
 
     
     def save(self):
         """Serialize to the JSON file."""
-        serialized_objects = {}
-        for k, v in self.__objects.items():
-            serialized_objects[k] = value.to_dict()
-        with open(self.__file_path, "w") as f:
-            json.dump(serialized_objects, f)
+        try:
+            with open(self.__file_path, "w") as f:
+                json.dump(self.__objects, f, default=self.encode)
+        except Exception as e:
+            print(f"Error saving to file: {e}")
 
     def reload(self):
         """Deserialize the JSON file"""
