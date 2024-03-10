@@ -40,6 +40,7 @@ class FileStorage:
                 serialized_objects = json.load(f)
                 for obj in serialized_objects.values():
                     cls_name = obj["__class__"]
+                    from models.base_model import BaseModel
                     self.new(eval(cls_name)(**obj))
         except FileNotFoundError:
             return
