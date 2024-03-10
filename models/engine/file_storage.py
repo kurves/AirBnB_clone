@@ -24,7 +24,7 @@ class FileStorage:
         """Serialize to the JSON file."""
         serialized_objects = {}
         for k, v in self.__objects.items():
-            serialized_objects[key] = v.to_dict()
+            serialized_objects[k] = v.to_dict()
         try:
             with open(self.__file_path, 'w') as f:
                 json.dump(serialized_objects, f)
@@ -38,7 +38,7 @@ class FileStorage:
                 serialized_objects = json.load(f)
                 for key, value in serialized_objects.items():
                     class_name = value.pop('__class__')
-                    module = __import__('models.' + class_name.lower(), fromlist=[class_name])
+                    module = __import__('models.' + class_name, fromlist=[class_name])
                     cls = getattr(module, class_name)
                     instance = cls(**value)
                     self.__objects[key] = instance
