@@ -37,9 +37,8 @@ class FileStorage:
         try:
             with open(self.__file_path, 'r') as f:
                 serialized_objects = json.load(f)
-                 for obj in serialized_objects.values():
+                for obj in serialized_objects.values():
                     cls_name = obj["__class__"]
-                    del obj["__class__"]
                     self.new(eval(cls_name)(**obj))
         except FileNotFoundError:
             return
