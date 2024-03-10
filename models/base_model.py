@@ -21,12 +21,6 @@ class BaseModel:
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
 
-
-    def __str__(self):
-        """str definition for class"""
-        class_name = self.__class__.__name__
-        return "[{}] ({}) {}".format(class_name, self.id, self.__dict__) 
-    
     def save(self):
         """updtae saved object"""
         from models import storage
@@ -40,7 +34,8 @@ class BaseModel:
         dict_copy['created_at'] = self.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
         dict_copy['updated_at'] = self.updated_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
         return dict_copy
-
-
-
-
+    
+    def __str__(self):
+        """str definition for class"""
+        class_name = self.__class__.__name__
+        return "[{}] ({}) {}".format(class_name, self.id, self.__dict__))
