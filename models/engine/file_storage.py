@@ -40,7 +40,7 @@ class FileStorage:
                 for key, value in serialized_objects.items():
                     class_name = value.pop('__class__')
                     try:
-                        module = importlib.import_module(f'models.{class_name.lower()}')
+                        module = importlib.import_module(f'models.{class_name}')
                     except ImportError:
                         print(f"Error loading module '{class_name}'")
                         continue  # Skip to the next object
