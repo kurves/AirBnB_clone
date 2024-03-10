@@ -2,6 +2,7 @@
 
 import json
 import os
+import importlib
 
 """"class file storage"""
 
@@ -38,7 +39,11 @@ class FileStorage:
                 serialized_objects = json.load(f)
                 for key, value in serialized_objects.items():
                     class_name = value.pop('__class__')
-                    module = __import__('models.' + class_name, fromlist=[class_name])
+                    try:
+                        module = importlib.import_module(f'models.{class_name.lower()}')
+                    except ImportError:
+                        print(f"Error loading module '{class_name}'")
+                        continue  # Skip to the next object
                     cls = getattr(module, class_name)
                     instance = cls(**value)
                     self.__objects[key] = instance
