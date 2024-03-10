@@ -16,7 +16,7 @@ class FileStorage:
 
     def new(self, obj):
         """objects the obj with key <obj class name>.id."""
-        k = "{}.{}".format(obj.__class__.__name__, obj.id)
+        f"{obj.__class__.__name__}.{obj.id}"
         self.__objects[k] = obj
 
     
@@ -41,6 +41,6 @@ class FileStorage:
                     module = __import__('models.' + class_name.lower(), fromlist=[class_name])
                     cls = getattr(module, class_name)
                     instance = cls(**value)
-                    self.__objects[key] = instanc
+                    self.__objects[key] = instance
         except FileNotFoundError:
             pass
