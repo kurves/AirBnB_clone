@@ -23,7 +23,7 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def help(self):
-    """List available commands with 'help'"""
+        """List available commands with 'help'"""
         cmd.Cmd.do_help(self, "")
 
 
