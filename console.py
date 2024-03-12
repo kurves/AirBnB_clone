@@ -1,4 +1,8 @@
+#!/usr/bin/python3
+
 import cmd
+
+"""cclass that defines console functionalities"""
 
 class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
