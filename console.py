@@ -22,6 +22,10 @@ class HBNBCommand(cmd.Cmd):
         """Do nothing on empty input line"""
         pass
 
+    def help(self):
+    """List available commands with 'help'"""
+        cmd.Cmd.do_help(self, "")
+
 
 
     def do_create(self, arg):
