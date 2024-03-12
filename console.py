@@ -4,6 +4,7 @@ import cmd
 
 """cclass that defines console functionalities"""
 
+
 class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
 
@@ -22,7 +23,7 @@ class HBNBCommand(cmd.Cmd):
 
 
 
-     def do_create(self, arg):
+    def do_create(self, arg):
         """Creates a new instance of BaseModel, saves it, and prints the id"""
         if not arg:
             print("** class name missing **")
