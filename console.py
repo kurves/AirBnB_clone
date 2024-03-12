@@ -2,6 +2,7 @@
 
 import cmd
 
+
 """cclass that defines console functionalities"""
 
 
