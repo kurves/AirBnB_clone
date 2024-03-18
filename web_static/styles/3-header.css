@@ -6,7 +6,7 @@ header {
 	display: flex;
 	align-items: center;
 	padding-left: 20px;
-}
-.logo {
-	margin-right: auto;
+	background-image: url("../images/logo.png");
+	background-repeat: no-repeat;
+	background-position: 20px;
 }
