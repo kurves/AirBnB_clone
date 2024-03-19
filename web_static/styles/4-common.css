@@ -8,6 +8,8 @@ body {
 }
 .container {
     max-width: 1000px;
-    margin: 30px auto;
-    padding-bottom: 60px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left:auto;
+    margin-right: auto;
 }
