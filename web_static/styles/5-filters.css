@@ -21,9 +21,8 @@
 }
 
 .container .filters button:hover {
-    opacity: 0.9;
+        background-color: rgba(255, 90, 95, .9);
 }
-
 .locations, .amenities {
     width: 25%;
     height: 100%;
@@ -39,10 +38,12 @@
 }
 
 .locations h3, .amenities h3 {
+	color: black;
 	font-weight: 600;
 	margin-bottom: 0px;
 }
 .locations h4, .amenities h4 {
+	color: grey;
 	font-weight: 400;
 	font-size: 14px;
 	margin-top: 0px;
