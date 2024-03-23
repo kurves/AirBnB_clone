@@ -6,7 +6,7 @@
     display: flex;
     align-items: center;
     padding-left: 20px;
-    background-image: url("images/logo.png");
+    background-image: url("../images/logo.png");
     background-repeat: no-repeat;
     background-position: 20px;
 }
