@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    font-size: 16px; /* Increase font size for better readability */
+    font-family: "Arial", sans-serif; /* Use a more common font */
+    color: #333; /* Dark text color for better contrast */
+    background-color: #fff; /* White background for better contrast */
+}
+
+.container {
+    max-width: 1000px;
+    margin: 30px auto; /* Center the container */
+}
+
+
+@media only screen and (max-width: 768px) {
+    /* Adjust container width for smaller screens */
+    .container {
+        max-width: 90%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
