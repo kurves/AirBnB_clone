@@ -91,7 +91,7 @@ padding-left:0px;
 .gicon{
     height: inherit;
     width: inherit;
-    background: url("icon_group.png");
+    background: url("../images/icon_group.png");
     background-repeat: no-repeat;
     margin-left: 5px;
 }
@@ -111,7 +111,7 @@ padding-left:0px;
 .ricon{
     height: inherit;
     width: inherit;
-    background: url("icon_bed.png");
+    background: url("../images/icon_bed.png");
     background-repeat: no-repeat;
     
 }
@@ -131,7 +131,7 @@ padding-right:70px;
 .bicon{
     height: inherit;
     width: inherit;
-    background: url("icon_bath.png");
+    background: url("../images/icon_bath.png");
     background-repeat: no-repeat;
     
  margin-right:60px;
@@ -186,7 +186,7 @@ padding:0px;
 .picon{
     width:40px;
     height:40px;
-    background:url("icon_pets.png");
+    background:url("../images/icon_pets.png");
     background-repeat: no-repeat;
     background-size: cover;
  margin-right:10px;
@@ -196,7 +196,7 @@ padding:0px;
 .tvicon{
     width:40px;
     height:40px;
-    background: url("icon_tv.png");
+    background: url("../images/icon_tv.png");
     background-repeat: no-repeat;
     margin-right: 10px;
     background-size: cover;
@@ -206,7 +206,7 @@ padding:0px;
 .wifiicon{
     width:40px;
     height:40px;
-    background: url("icon_wifi.png");
+    background: url("../images/icon_wifi.png");
     background-repeat: no-repeat;
     margin-right: 10px;
     background-size: cover;
